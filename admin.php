@@ -57,10 +57,6 @@ if (!isset($_SESSION['username'])) {
             <li class="nav-item">
                 <a class="nav-link" href="admin.php?page=article">Collection</a>
             </li> 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-warning fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <?= $_SESSION['username']?>
-                </a>
                 <li class="nav-item">
                 <a class="nav-link" href="admin.php?page=gallery">Gallery</a>
             </li> 
