@@ -194,7 +194,7 @@ include "koneksi.php";
         ?>
         <div class="col">
           <div class="card h-100">
-            <img src="<?= $row["gambar"]?>" class="card-img-top" alt="..." />
+            <img src="img/<?= $row["gambar"]?>" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title"><?= $row["judul"]?></h5>
               <p class="card-text">
@@ -216,81 +216,51 @@ include "koneksi.php";
 </section>
 <!-- article end -->
 
+<!-- gallery begin -->
+<div class="container-fluid" id="gallery" style="height: 150vh">
+  <h1 class="text-center" style="padding-top: 70px">Gallery</h1>
+  <div id="carouselExample" class="carousel slide mt-5">
+    <div class="carousel-inner">
+      <?php
+      $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+      $hasil = $conn->query($sql);
+      $active = true;
 
-    <div class="container-fluid" id="gallery" style="height: 100vh">
-      <h1 class="text-center" style="padding-top: 70px">Gallery</h1>
-      <div id="carouselExample" class="carousel slide mt-5">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="https://images.unsplash.com/photo-1593087130576-389402bc050a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="d-block carousel-img"
-              alt="..."
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://images.unsplash.com/photo-1592842312669-1c6a0dc6dc21?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="d-block carousel-img"
-              alt=""
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://images.unsplash.com/photo-1514348871858-1d3c20902571?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="d-block carousel-img"
-              alt="..."
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://images.unsplash.com/photo-1588680388395-95f3f5c524a8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="d-block carousel-img"
-              alt="..."
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://images.unsplash.com/photo-1588680137822-3a1f1d585efc?q=80&w=1795&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="d-block carousel-img"
-              alt="..."
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://images.unsplash.com/photo-1588680387706-913dc9c51036?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="d-block carousel-img"
-              alt="..."
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://images.unsplash.com/photo-1595002132744-d718a5f959d7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="d-block carousel-img"
-              alt="..."
-            />
-          </div>
+      while ($row = $hasil->fetch_assoc()) {
+        $activeClass = $active ? 'active' : '';
+        $active = false; 
+        ?>
+        <div class="carousel-item <?= $activeClass ?>">
+          <img src="img/<?= $row['gambar'] ?>" class="d-block carousel-img" alt="<?= $row['gambar'] ?>" />
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExample"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExample"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+        <?php
+      }
+      ?>
     </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+
+    <!-- gallery end -->
+
 
     <div class="container mt-4" id="Schedule">
   <h2 class="text-center fw-bold">Schedule</h2>
@@ -401,7 +371,7 @@ include "koneksi.php";
       </div>
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
       // Function to update date and time
       function updateDateTime() {
