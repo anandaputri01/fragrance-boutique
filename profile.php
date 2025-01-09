@@ -15,8 +15,8 @@ if (isset($_POST['simpan'])) {
 
     if (empty($password) && empty($nama_gambar)) {
         echo "<script>
-            alert('Value kosong! Gagal menyimpan data. Masukkan Password baru anda atau foto profil baru anda untuk menyimpan.');
-            document.location='admin.php?page=profil';
+            alert('Value kosong! Gagal menyimpan data. Masukkan Password baru anda atau foto profile baru anda untuk menyimpan.');
+            document.location='admin.php?page=profile';
         </script>";
     }
 
@@ -28,7 +28,7 @@ if (isset($_POST['simpan'])) {
         } else {
             echo "<script>
                 alert('" . $cek_upload['message'] . "');
-                document.location='admin.php?page=profil';
+                document.location='admin.php?page=profile';
             </script>";
             die;
         }
@@ -72,12 +72,12 @@ if (isset($_POST['simpan'])) {
     } else if ($simpanProfile) {
         echo "<script>
             alert('Simpan data sukses');
-            document.location='admin.php?page=profil';
+            document.location='admin.php?page=profile';
         </script>";
     } else {
         echo "<script>
             alert('Simpan data gagal');
-            document.location='admin.php?page=profil';
+            document.location='admin.php?page=profile';
         </script>";
     }
 
@@ -95,11 +95,11 @@ if (isset($_POST['simpan'])) {
             <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password Baru hanya jika ingin mengganti password anda" autocomplete="off">
         </div>
         <div class="mb-3">
-            <label for="gambar" class="form-label">Ganti Foto Profil</label>
+            <label for="gambar" class="form-label">Ganti Foto Profile</label>
             <input type="file" class="form-control" id="gambar" name="gambar">
         </div>
         <div class="mb-3">
-            <label class="form-label">Foto Profil Saat Ini</label>
+            <label class="form-label">Foto Profile Saat Ini</label>
             <div>
                 <img src="img/<?= $data['foto'] ?>" alt="Current Profile Photo" class="img-fluid" width="150">
             </div>

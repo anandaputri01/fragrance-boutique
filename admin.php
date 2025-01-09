@@ -68,7 +68,7 @@ if (!isset($_SESSION['username'])) {
                     <?= $_SESSION['username']?>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="admin.php?page=profil">Profile  <?= $_SESSION['username'] ?> </a></li> 
+                    <li><a class="dropdown-item" href="admin.php?page=profile">Profile  <?= $_SESSION['username'] ?> </a></li> 
                     <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                 </ul>
             </li> 
